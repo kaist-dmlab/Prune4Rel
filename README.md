@@ -6,38 +6,39 @@ by [Dongmin Park](https://scholar.google.com/citations?user=4xXYQl0AAAAJ&hl=ko)<
 
 * **`Sep 22, 2023`:** **Our work is accepted at NeurIPS 2023.**
 
+# Brief Summary
+- **Prune4ReL** is a new data pruning method for **Re-labeling** models (e.g., [DivideMix](https://github.com/LiJunnan1992/DivideMix) & [SOP+](https://github.com/shengliu66/SOP)) showing state-of-the-art performance under label noise.
+- Inspired by a re-labeling theory, Prune4ReL finds a desired data subset by **maximizing the total reduced neighborhood confidence**, thereby maximizing re-labeling & generalization performance.
+- With a greedy approximation, Prune4ReL is efficient and **scalable to large datasets** including Clothing-1M & ImageNet-1K.
+- On four real noisy datasets (e.g., CIFAR-10/100N, WebVision, & Clothing-1M), **Prune4Rel outperforms data pruning baselines with Re-labeling models by 9.1%, and those with a standard model by 21.6%**.
+
 # How to run
 
 ### Prune4ReL
 
-Go to the AL/ folder
+Please follow Table 7 for hyperparameters. For CIFAR-10N dataset with SOP+ as Re-labeling model,
 
-* CIFAR10
 ```bash
-python3 main.py --gpu 0 --data_path=$your_data_folder --dataset 'CIFAR10' --n-class 10 --model 'ResNet18' \
-                        --method 'Uncertainty' --uncertainty 'Margin' --n-query 1000 --epochs 200 --batch-size 128
-```
-* CIFAR100
-```bash
-python3 main.py --gpu 0 --data_path=$your_data_folder --dataset 'CIFAR100' --n-class 100 --model 'ResNet18' \
-                        --method 'Uncertainty' --uncertainty 'Margin' --n-query 1000 --epochs 200 --batch-size 128
-```
-* ImageNet30
-```bash
-python3 main.py --gpu 0 --data_path=$your_data_folder --dataset 'ImageNet30' --n-class 30 --model 'ResNet18' \
-                        --method 'Uncertainty' --uncertainty 'Margin' --n-query 780 --epochs 200 --batch-size 128
+python3 main_label_noise.py --gpu 0 --model 'PreActResNet18' --robust-learner 'SOP' -rc 0.9 -rb 0.1 \
+          --dataset CIFAR10 --noise-type $noise_type --n-class 10 --lr-u 10 -se 10 --epochs 300 \
+          --fraction $fraction --selection Prune4Rel --save-log True \
+          --metric cossim --uncertainty LeastConfidence --tau 0.975 --eta 1 --balance True
 ```
 
+More detailed scripts for other datasets can be found in `script/` folder.
 
-### Existing Subset Selection Algorithms: Forgetting, GraNd, kCenterGreedy, Glister, etc
 
-Go to the DeepCore/ folder
 
-* CIFAR10, CIFAR100, ImageNet50
+### Data Pruning Baselines: Uniform, SmallL, Margin, kCenterGreedy, Forgetting, GraNd, Moderate, etc
+
+Basically, the script is similar to that of Prune4ReL. For example, 
+
 ```bash
-python3 main.py --data_path=$your_data_folder --datset $dataset --model $arch --selection $selection_algorithm --fraction $target_fraction
+python3 main_label_noise.py --gpu 0 --model 'PreActResNet18' --robust-learner 'SOP' -rc 0.9 -rb 0.1 \
+          --dataset CIFAR10 --noise-type $noise_type --n-class 10 --lr-u 10 -se 10 --epochs 300 \
+          --fraction $fraction --selection *$pruning_algorithm* --save-log True \
 ```
-\*$selection_algorithm must be in ['Uniform', 'Uncertainty', 'Forgetting', 'GraNd', ...], each of which is a class name in deep_core/methods/~~.py
+where \*$pruning_algorithm\* *must* be from [Uniform, SmallLoss, Uncertainty, Forgetting, GraNd, ...], each of which is a class name in `deep_core/methods/~~.py`.
 
 
 # Citation
@@ -53,4 +54,5 @@ python3 main.py --data_path=$your_data_folder --datset $dataset --model $arch --
 
 # References
 
+We thank the DeepCore library below, on which we built our repository. Hope our project helps extend the open-source data pruning library.
 * DeepCore library \[[code](https://github.com/PatrickZH/DeepCore)\] : DeepCore: A Comprehensive Library for Coreset Selection in Deep Learning, Guo et al. 2022.
