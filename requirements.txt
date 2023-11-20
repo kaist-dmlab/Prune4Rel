@@ -1,0 +1,7 @@
+#nsml: nsml/ml:cuda10.1-cudnn7-pytorch1.3keras2.3
+torch==1.4.0
+matplotlib
+tqdm
+pillow
+prefetch_generator
+ptflops
