@@ -3,8 +3,6 @@ import numpy as np
 import sys
 from datetime import datetime
 import os
-from knockknock import slack_sender
-
 
 def train_epoch(args, epoch, networks, optimizers, schedulers, criterion, trainloader):
     net = networks['net1']
@@ -39,12 +37,6 @@ def train_epoch(args, epoch, networks, optimizers, schedulers, criterion, trainl
     if schedulers['scheduler1'] is not None:
         schedulers['scheduler1'].step()
 
-
-# webhook_url = 'https://hooks.slack.com/services/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'
-#webhook_url = "https://hooks.slack.com/services/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"
-
-
-#@slack_sender(webhook_url=webhook_url, channel="terminal-alert")
 def train_CE(args, networks, optimizers, schedulers, criterion, loader):
     best_acc = 0
     run_time = str(datetime.now())

@@ -7,7 +7,6 @@ from datetime import datetime
 import os
 import sys
 import pickle
-from knockknock import slack_sender
 
 # To import robustlearner
 import os, sys
@@ -130,9 +129,6 @@ class EarlyTrain(CoresetMethod):
         warmup_test_acc = self.test(self.epochs)
 
         return self.finish_run(), configs
-
-    #webhook_url = "https://hooks.slack.com/services/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"
-    #@slack_sender(webhook_url=webhook_url, channel="terminal-alert")
 
     def train_SOP_warmup(self, args, net, optimizer, scheduler):
         run_time = str(datetime.now())
