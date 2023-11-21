@@ -29,7 +29,7 @@ More detailed scripts for other datasets can be found in [`scripts/`](https://gi
 
 
 
-### Data Pruning Baselines: Uniform, SmallL, Margin, kCenterGreedy, Forgetting, GraNd, Moderate, etc
+### Data Pruning Baselines: Uniform, SmallLoss, Margin, Forgetting, GraNd, Moderate, etc
 
 Basically, the script is similar to that of Prune4ReL. For example, 
 
