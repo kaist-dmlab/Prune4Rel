@@ -54,5 +54,5 @@ where \*$pruning_algorithm\* *must* be from [Uniform, SmallLoss, Uncertainty, Fo
 
 # References
 
-We thank the DeepCore library below, on which we built our repository. Hope our project helps extend the open-source data pruning library.
+We thank the DeepCore library below, on which we built most of our repo. Hope our project helps extend the open-source library of data pruning.
 * DeepCore library \[[code](https://github.com/PatrickZH/DeepCore)\] : DeepCore: A Comprehensive Library for Coreset Selection in Deep Learning, Guo et al. 2022.
