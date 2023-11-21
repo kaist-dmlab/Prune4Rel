@@ -8,7 +8,7 @@ by [Dongmin Park](https://scholar.google.com/citations?user=4xXYQl0AAAAJ&hl=ko)<
 
 # Brief Summary
 - **Prune4ReL** is a new data pruning method for **Re-labeling** models (e.g., [DivideMix](https://github.com/LiJunnan1992/DivideMix) & [SOP+](https://github.com/shengliu66/SOP)) showing state-of-the-art performance under label noise.
-- Inspired by a re-labeling theory, Prune4ReL finds a desired data subset by **maximizing the total reduced neighborhood confidence**, thereby maximizing re-labeling & generalization performance.
+- Inspired by a re-labeling theory, Prune4ReL finds the desired data subset by **maximizing the total reduced neighborhood confidence**, thereby maximizing re-labeling & generalization performance.
 - With a greedy approximation, Prune4ReL is efficient and **scalable to large datasets** including Clothing-1M & ImageNet-1K.
 - On four real noisy datasets (e.g., CIFAR-10/100N, WebVision, & Clothing-1M), **Prune4Rel outperforms data pruning baselines with Re-labeling models by 9.1%, and those with a standard model by 21.6%**.
 
@@ -25,7 +25,7 @@ python3 main_label_noise.py --gpu 0 --model 'PreActResNet18' --robust-learner 'S
           --metric cossim --uncertainty LeastConfidence --tau 0.975 --eta 1 --balance True
 ```
 
-More detailed scripts for other datasets can be found in `script/` folder.
+More detailed scripts for other datasets can be found in [`scripts/`](https://github.com/kaist-dmlab/Prune4Rel/tree/main/scripts) folder.
 
 
 
