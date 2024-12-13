@@ -16,7 +16,7 @@ by [Dongmin Park](https://scholar.google.com/citations?user=4xXYQl0AAAAJ&hl=ko)<
 
 ### Prune4ReL
 
-Please follow Table 7 for hyperparameters. For CIFAR-10N dataset with SOP+ as Re-labeling model,
+Please follow Table 7 for hyperparameters. For CIFAR-10N dataset with SOP+ as Re-labeling model
 
 ```bash
 python3 main_label_noise.py --gpu 0 --model 'PreActResNet18' --robust-learner 'SOP' -rc 0.9 -rb 0.1 \
