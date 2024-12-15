@@ -1,4 +1,4 @@
-# Robust Data Pruning under Label Noise via Maximizing Re-labeling Accuracy (NeurIPS 2023, [PDF](https://arxiv.org/pdf/2311.01002.pdf))
+# Robust Data Pruning under Label Noise via Maximizing Re-labeling Accuracy (NeurIPS 2023, [PDF](https://arxiv.org/pdf/2311.01002.pdf)) 
 
 by [Dongmin Park](https://scholar.google.com/citations?user=4xXYQl0AAAAJ&hl=ko)<sup>1</sup>, [Seola Choi](https://scholar.google.com/citations?hl=ko&user=U6P2mAgAAAAJ)<sup>1</sup>, [Doyoung Kim](https://scholar.google.com/citations?user=vEAbNDYAAAAJ&hl=en)<sup>1</sup>, [Hwanjun Song](https://scholar.google.com/citations?user=Ijzuc-8AAAAJ&hl=en)<sup>1, 2</sup>, [Jae-Gil Lee](https://scholar.google.com/citations?user=h9mbv9MAAAAJ&hl=en)<sup>1</sup>.
 
